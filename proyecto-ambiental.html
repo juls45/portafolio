@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cronograma Proyecto Ambiental</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f0f4f8; margin: 0; padding: 20px; }
+    .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h1 { text-align: center; color: #2c3e50; }
+    .task { margin-top: 20px; }
+    .date { font-weight: bold; color: #34495e; }
+    .description { margin-top: 5px; color: #555; }
+    .completed { text-decoration: line-through; color: #aaa; }
+    button { margin-top: 10px; padding: 6px 10px; border: none; background: #27ae60; color: white; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #219150; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Proyecto Ambiental - Actividad del Día</h1>
+    <div class="task" id="task">
+      <div class="date" id="date"></div>
+      <div class="description" id="description"></div>
+      <button onclick="markCompleted()">Marcar como completado</button>
+    </div>
+  </div>
+
+  <script>
+    const tasks = {
+      "2025-05-22": "Definir y redactar el título del proyecto",
+      "2025-05-23": "Escribir la introducción",
+      "2025-05-24": "Redactar la pregunta problema",
+      "2025-05-25": "Escribir la justificación",
+      "2025-05-26": "Formular el objetivo general",
+      "2025-05-27": "Formular objetivos específicos",
+      "2025-05-28": "Revisión y mejora de lo hecho en la semana",
+      "2025-05-29": "Buscar información sobre el medio ambiente y su cuidado",
+      "2025-05-30": "Buscar información sobre la siembra de plantas/frutales",
+      "2025-05-31": "Buscar información sobre educación ambiental para niños",
+      "2025-06-01": "Redactar el marco teórico (parte 1)",
+      "2025-06-02": "Continuar con el marco teórico (parte 2)",
+      "2025-06-03": "Redacción final del marco teórico",
+      "2025-06-04": "Revisión completa del marco teórico",
+      "2025-06-05": "Redactar la metodología",
+      "2025-06-06": "Hacer el cronograma de actividades",
+      "2025-06-07": "Hacer la lista de recursos necesarios",
+      "2025-06-08": "Escribir las conclusiones proyectadas",
+      "2025-06-09": "Redactar la bibliografía",
+      "2025-06-10": "Revisar y organizar el documento final",
+      "2025-06-11": "Repaso general y ajustes finales"
+    };
+
+    const today = new Date().toISOString().split('T')[0];
+    const taskDiv = document.getElementById('task');
+    const dateDiv = document.getElementById('date');
+    const descDiv = document.getElementById('description');
+
+    if (tasks[today]) {
+      dateDiv.textContent = `📅 Hoy: ${today}`;
+      descDiv.textContent = tasks[today];
+    } else {
+      dateDiv.textContent = `📅 Hoy: ${today}`;
+      descDiv.textContent = 'No hay actividad asignada para hoy. ¡Buen trabajo hasta ahora!';
+    }
+
+    function markCompleted() {
+      descDiv.classList.add('completed');
+    }
+  </script>
+</body>
+</html>
